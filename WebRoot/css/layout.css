@@ -1,0 +1,98 @@
+body{
+	margin:  0;
+	padding: 0;
+	background: url("../images/bkg_gradient.gif") repeat-x;
+}
+
+form{
+	margin: 0 !important; 
+	padding: 0;
+}
+a{
+	text-decoration: none !important;
+}
+
+ul {
+	list-style: none;
+	padding: 5px 10px;
+}
+
+#centro{
+	max-width: 1300px;
+	min-height:950px;
+	margin:10px auto;
+	border: 1px solid #ccc;
+}
+
+#centro #topo{
+	background: #CFCFCF;
+	max-width: 1300px;
+	min-height:30px;
+	margin:0 auto;
+	border-bottom: 1px solid #ccc;
+}
+
+#centro #menu {
+	margin: 0;
+}
+
+#centro #menu li.menu {
+	float: left;
+	margin-right: 10px;
+	height: 31px;
+	cursor: pointer;
+}
+
+#centro #menu li.menu a{
+	text-decoration: none;
+}
+
+
+#centro #menu li.menu ul.submenu {
+	display: none !important;
+	position: absolute;
+    top:40px;  
+}
+
+#centro #menu li.menu ul.submenu li {
+	float: none;
+}
+
+#centro #menu li.menu:hover {
+	background: white;
+}
+
+#centro #menu li.menu:hover ul.submenu {
+	display: initial !important;
+}
+
+#content {
+	width: 500px;
+	min-height:350px;
+	margin: 50px auto;
+}
+
+.link{
+	text-align: center; position: relative; margin:0;
+}
+.button{
+	color: #08c;
+	font-size:13pt;
+	background: none;
+	border: none;
+	margin-top: -4px;
+	
+}
+
+table tr th{
+	color: #333;
+}
+
+.inp_busca{
+	margin-top: 8px;
+	color: #777;
+}
+
+input.error {
+	border: 1px solid red !important;
+}
