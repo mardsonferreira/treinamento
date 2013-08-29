@@ -27,5 +27,10 @@ public class ProdutoDao extends GenericDao {
 				.list();
 	}
 
+	public void recarrega(Produto produto) {
+		getSession().refresh(produto);
+		
+	}
+
 	
 }
