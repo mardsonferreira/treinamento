@@ -53,4 +53,8 @@ $(function() {
 		messages : messages
 	});
 
+	$('#usuariosForm').validate({
+	    messages : messages
+	});
+	
 });

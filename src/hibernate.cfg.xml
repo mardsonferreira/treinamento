@@ -19,6 +19,7 @@
 		<property name="hibernate.format_sql">true</property>
 		
 		<mapping class="br.grupofortes.vraptor.model.Produto" />
+		<mapping class="br.grupofortes.vraptor.model.Usuario" />
 		
  <!--  Configuração Hibernate Envers  -->
 		<listener class="org.hibernate.envers.event.AuditEventListener" type="post-insert"/>   

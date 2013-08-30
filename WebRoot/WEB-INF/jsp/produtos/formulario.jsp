@@ -4,6 +4,7 @@
 <jsp:include page="../index/head.jsp" />
 
 <div id="content">
+<fieldset>
 	<form class="form-horizontal" method="post" id="formulario"
 		action='<c:url value="/produtos"/>'>
 		
@@ -14,26 +15,23 @@
 		
 		
 		<div class="control-group">
-			<label class="control-label">Nome</label>
 			<div class="controls">
-				<input id="pnome" class="required" type="text" name="produto.nome"
+				<input id="pnome" placeholder="Nome" class="required" type="text" name="produto.nome"
 					value="${produto.nome}" />
 			</div>
 		</div>
 
 
 		<div class="control-group">
-			<label class="control-label">Descrição</label>
 			<div class="controls">
-				<input id="pdesc" class="required" type="text"
+				<input id="pdesc" class="required" type="text" placeholder="Descrição"
 					name="produto.descricao" value="${produto.descricao}" />
 			</div>
 		</div>
 
 		<div class="control-group">
-			<label class="control-label">Preço</label>
 			<div class="controls">
-				<input id="ppreco" type="text" class="required" name="produto.preco"
+				<input id="ppreco" placeholder="Preço" type="text" class="required" name="produto.preco"
 					value="${produto.preco}" />
 			</div>
 		</div>
@@ -46,6 +44,7 @@
 		</div>
 
 	</form>
+	</fieldset>
 </div>
 </div>
 </body>
