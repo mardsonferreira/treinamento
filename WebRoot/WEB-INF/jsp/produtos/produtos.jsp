@@ -20,12 +20,13 @@
 
 				<td>
 				
-					<form action="<c:url value="/carrinho/"/>" method="POST">
+					<form action="<c:url value="/carrinho"/>" method="POST">
 					 <input type="hidden" name="item.produto.id" value="${produto.id }" />
-					  <input class="qtde" name="item.quantidade" value="1" />
+					  <input class="qtde" name="item.quantidade" value="1" style="width: 40px;"/>
 						<button type="submit">Comprar</button>
 					</form>
 				</td>
+				
 				<td><a class="link"
 					href='<c:url value="/produtos/edit/${produto.id}"/>'> <i
 						class="icon-edit"></i> </a>
