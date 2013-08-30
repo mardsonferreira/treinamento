@@ -1,5 +1,7 @@
 package br.grupofortes.vraptor.controller;
 
+import br.com.caelum.vraptor.Delete;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -41,6 +43,17 @@ public class CarrinhoController {
 		produtoDao.recarrega(item.getProduto());
 		carrinho.adiciona(item);
 		result.redirectTo(ProdutosController.class).produtos();
+	}
+	
+	@Get("")
+	public void itens(){
+		
+	}
+	
+	@Delete("/{indiceItem}")
+	public void remove(int indiceItem) {
+	carrinho.remove(indiceItem);
+	result.redirectTo(this).itens();
 	}
 
 }

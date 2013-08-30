@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -41,12 +42,12 @@
 
 				<div id="header">
 					<div id="carrinho">
-						<h3>Meu carrinho:</h3>
+					<h3 class="car_h3"><a href="<c:url value="/carrinho"/>">Meu carrinho:</a></h3>
 						<c:if test="${empty carrinho or carrinho.totalDeItens eq 0 }">
 							<span>Você não possui itens no seu carrinho</span>
 						</c:if>
 						<c:if test="${carrinho.totalDeItens > 0 }">
-							<ul>
+							<ul class="car_ul">
 								<li><strong>Itens:</strong> ${carrinho.totalDeItens }</li>
 								<li><strong>Total:</strong> <fmt:formatNumber
 										type="currency" value="${carrinho.total}" />

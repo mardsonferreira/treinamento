@@ -37,4 +37,10 @@ public class Carrinho {
 	public Integer getTotalDeItens() {
 		return itens.size();
 	}
+
+	public void remove(int indiceItem) {
+		Item removido = itens.remove(indiceItem);
+		total -= removido.getProduto().getPreco() * removido.getQuantidade();
+		
+	}
 }
