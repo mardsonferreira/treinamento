@@ -8,7 +8,6 @@
 
 <script src="/produtos/js/jquery-1.10.2.min.js" type="text/javascript"></script>
 <script src="/produtos/js/jquery.validate.min.js" type="text/javascript"></script>
-<script src="/produtos/js/puts.js" type="text/javascript"></script>
 <script src="/produtos/js/jquery.mask.min.js" type="text/javascript"></script>
 
 
@@ -38,7 +37,7 @@
 					</c:if>
 					<li><a href='<c:url value="/produtos"/>'>Listar Produtos</a>
 					</li>
-					<li id="find"><input id="busca" class="inp_busca" name="nome" />
+					<li id="find"><input id="busca" class="inp_busca" placeHolder="Buscar por Nome" name="nome" />
 
 					</li>
 				</ul>

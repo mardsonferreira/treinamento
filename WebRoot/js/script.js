@@ -8,7 +8,8 @@ $(function() {
 		$("#busca").keyup(function() {
 			$("#content").load("/produtos/produtos/find/"+$("#busca").val());
 		});
-		$("#busca").puts("Buscar produtos por nome");
+		
+		//$("#busca").puts("Buscar produtos por nome");
 				
 		$(".remove").click(function(){	
 			$.get($(this).parent().find("form").attr("action")).success(function() {

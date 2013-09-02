@@ -19,24 +19,23 @@
 				<td>${produto.nome}</td>
 				<td>${produto.descricao}</td>
 				<td>${produto.preco}</td>
-				
-					<td>
 
-						<form action="<c:url value="/carrinho"/>" method="POST">
-							<input type="hidden" name="item.produto.id"
-								value="${produto.id }" /> <input class="qtde"
-								name="item.quantidade" value="1" style="width: 40px;" />
-							<button type="submit">Comprar</button>
-						</form>
+				<td>
+					<form action="<c:url value="/carrinho"/>" method="POST">
+						<input type="hidden" name="item.produto.id" value="${produto.id }" />
+						<input class="qtde" name="item.quantidade" value="1" />
+						
+						<button type="submit" class="btn">Comprar</button>
+					</form>
 					</td>
 				<c:if test="${usuarioWeb.logado}">
-				<td><a class="link"
-					href='<c:url value="/produtos/edit/${produto.id}"/>'> <i
-						class="icon-edit"></i> </a>
-					<button class="button remove" id="${produto.id}">
-						<i class="icon-trash button"></i>
-					</button>
-				</td>
+					<td><a class="link"
+						href='<c:url value="/produtos/edit/${produto.id}"/>'> <i
+							class="icon-edit"></i> </a>
+						<button class="button remove" id="${produto.id}">
+							<i class="icon-trash button"></i>
+						</button>
+					</td>
 				</c:if>
 			</tr>
 

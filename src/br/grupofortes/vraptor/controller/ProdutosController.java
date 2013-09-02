@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
+import br.com.caelum.vraptor.interceptor.Restrito;
 import br.com.caelum.vraptor.view.Results;
 import br.grupofortes.vraptor.dao.ProdutoDao;
 import br.grupofortes.vraptor.model.Produto;
@@ -40,10 +41,12 @@ public class ProdutosController {
 	}
 	
 	@Get("/new")
+	@Restrito
 	public void formulario() {
 	}
 
 	@Post("")
+	@Restrito
 	public void save(final Produto produto) {
 		validator.validate(produto);
 		validator.onErrorUsePageOf(this).formulario();
@@ -52,12 +55,14 @@ public class ProdutosController {
 	}
 
 	@Get("/edit/{id}")
+	@Restrito
 	public void edit(Long id) {
 		Produto produto =  produtoDao.carrega(id);
 		result.include("produto", produto).forwardTo(this).formulario();
 	}
 
 	@Put("")
+	@Restrito
 	public void update(Produto produto) {
 		validator.validate(produto);
 		validator.onErrorUsePageOf(this).edit(produto.getId());
@@ -71,6 +76,7 @@ public class ProdutosController {
 	}
 
 	@Delete("/remove/{id}")
+	@Restrito
 	public void remove(Long id) {
 		produtoDao.delete(produtoDao.carrega(id));
 		result.use(Results.representation());
