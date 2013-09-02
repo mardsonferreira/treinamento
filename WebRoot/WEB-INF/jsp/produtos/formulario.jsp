@@ -4,46 +4,56 @@
 <jsp:include page="../index/head.jsp" />
 
 <div id="content">
-<fieldset>
-	<form class="form-horizontal" method="post" id="formulario"
-		action='<c:url value="/produtos"/>'>
-		
-		<c:if test="${produto.id != null}"> 
-			<input type="hidden" name="produto.id" value="${produto.id}">
-			<input type='hidden' name='_method' value='PUT'/>
-		</c:if>
-		
-		
-		<div class="control-group">
-			<div class="controls">
-				<input id="pnome" placeholder="Nome" class="required" type="text" name="produto.nome"
-					value="${produto.nome}" />
-			</div>
-		</div>
+	<fieldset>
+		<form class="form-horizontal" method="post" id="formulario"
+			action='<c:url value="/produtos"/>'>
+
+			<c:if test="${produto.id != null}">
+				<input type="hidden" name="produto.id" value="${produto.id}">
+				<input type='hidden' name='_method' value='PUT' />
+
+					<fieldset>
+						<legend>Upload de Imagem</legend>
+						<input type="file" name="imagem" />
+						<button type="submit">Enviar</button>
+					</fieldset>
+			</c:if>
 
 
-		<div class="control-group">
-			<div class="controls">
-				<input id="pdesc" class="required" type="text" placeholder="Descrição"
-					name="produto.descricao" value="${produto.descricao}" />
-			</div>
-		</div>
-
-		<div class="control-group">
-			<div class="controls">
-				<input id="ppreco" placeholder="Preço" type="text" class="required" name="produto.preco"
-					value="${produto.preco}" />
-			</div>
-		</div>
-
-		<div class="control-group">
-			<div class="controls">
-				<button id="enviar" type="submit" class="btn">Enviar</button>
+			<div class="control-group">
+				<div class="controls">
+					<input id="pnome" placeholder="Nome" class="required" type="text"
+						name="produto.nome" value="${produto.nome}" />
+				</div>
 			</div>
 
-		</div>
 
-	</form>
+			<div class="control-group">
+				<div class="controls">
+					<input id="pdesc" class="required" type="text"
+						placeholder="Descrição" name="produto.descricao"
+						value="${produto.descricao}" />
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="controls">
+					<input id="ppreco" placeholder="Preço" type="text" class="required"
+						name="produto.preco" value="${produto.preco}" />
+				</div>
+			</div>
+
+
+
+
+			<div class="control-group">
+				<div class="controls">
+					<button id="enviar" type="submit" class="btn">Enviar</button>
+				</div>
+
+			</div>
+
+		</form>
 	</fieldset>
 </div>
 </div>

@@ -6,6 +6,7 @@
 <div id="content">
 	<table class="table table-striped">
 		<tr>
+			<th></th>
 			<th>Nome</th>
 			<th>Descrição</th>
 			<th>Preço</th>
@@ -16,6 +17,8 @@
 		</tr>
 		<c:forEach items="${produtos}" var="produto">
 			<tr id="produto-${produto.id}">
+				<td><img src="<c:url value="/produtos/${produto.id}/imagem"/>"
+					width="80" height="80" /></td>
 				<td>${produto.nome}</td>
 				<td>${produto.descricao}</td>
 				<td>${produto.preco}</td>
@@ -24,18 +27,16 @@
 					<form action="<c:url value="/carrinho"/>" method="POST">
 						<input type="hidden" name="item.produto.id" value="${produto.id }" />
 						<input class="qtde" name="item.quantidade" value="1" />
-						
+
 						<button type="submit" class="btn">Comprar</button>
-					</form>
-					</td>
+					</form></td>
 				<c:if test="${usuarioWeb.logado}">
 					<td><a class="link"
 						href='<c:url value="/produtos/edit/${produto.id}"/>'> <i
 							class="icon-edit"></i> </a>
 						<button class="button remove" id="${produto.id}">
 							<i class="icon-trash button"></i>
-						</button>
-					</td>
+						</button></td>
 				</c:if>
 			</tr>
 
