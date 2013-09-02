@@ -122,3 +122,14 @@ input.error {
 h3 {
 	text-align: center;
 }
+
+.sucesso, .erroLogin{
+	display: none;
+}
+
+.sucesso{
+	color: green;
+}
+.erroLogin{
+	color: red;
+}

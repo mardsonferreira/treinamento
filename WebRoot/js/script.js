@@ -35,26 +35,55 @@ $(function() {
 	$("#ppreco").mask("999999999999.99", {reverse: true});
 	
 	var messages = {}, itensObrigatoriosList = [];
-	$elements = $("#formulario").find(
-			"input[type != hidden], select, textarea");
-	$elements.each(function() {
-		var thisClass = $(this).attr("class");
-		if (thisClass && thisClass.match("required")) {
-			itensObrigatoriosList.push($(this).attr("name"));
-		}
-	});
-	for ( var i = 0; i < itensObrigatoriosList.length; i++) {
-		messages[itensObrigatoriosList[i]] = {
-			required : ""
-		};
+	function validateForm (form) {
+		$elements = $(form).find(
+		"input[type != hidden], select, textarea");
+		$elements.each(function() {
+			var thisClass = $(this).attr("class");
+			if (thisClass && thisClass.match("required")) {
+				itensObrigatoriosList.push($(this).attr("name"));
+			}
+		});
+		for ( var i = 0; i < itensObrigatoriosList.length; i++) {
+			messages[itensObrigatoriosList[i]] = {
+					required : ""
+			};
+		}		
 	}
 
+	
+	
+	validateForm($("#formulario"));
 	$("#formulario").validate({
 		messages : messages
 	});
 
+	validateForm($("#usuariosForm"));
 	$('#usuariosForm').validate({
 	    messages : messages
 	});
 	
+	validateForm($("#loginForm"));
+	$('#loginForm').validate({
+	    messages : messages
+	});
+	
 });
+
+function verificaUsuario() {
+	var login = $("#login").val();
+	var url = "/produtos/usuarios/login/" + login;
+	$.ajax({
+		url: url,
+		type : "GET",
+		success: function(retorno) {
+			if(retorno){
+				$(".sucesso").hide();
+				$(".erroLogin").show();
+			}else{
+				$(".sucesso").show();
+				$(".erroLogin").hide();
+			}
+		},
+	});
+};

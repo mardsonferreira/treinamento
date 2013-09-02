@@ -15,6 +15,14 @@ public class UsuarioDao extends GenericDao {
 				.uniqueResult();
 		return encontrado != null;
 	}
+	
+	public boolean  verificaUsuario(String login) {
+		Usuario encontrado = (Usuario) getSession()
+				.createCriteria(Usuario.class)
+				.add(Restrictions.eq("login", login))
+				.uniqueResult();
+		return encontrado != null;
+	}
 
 	public Usuario carrega(Usuario usuario) {
 		return (Usuario) getSession().createCriteria(Usuario.class)

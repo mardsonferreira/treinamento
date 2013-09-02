@@ -1,6 +1,11 @@
 package br.grupofortes.vraptor.controller;
 
+import static br.com.caelum.vraptor.view.Results.json;
+
 import javax.servlet.jsp.tagext.ValidationMessage;
+
+import org.codehaus.jettison.json.JSONArray;
+import org.json.JSONWriter;
 
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
@@ -50,6 +55,11 @@ public class UsuariosController {
 	@Get("/login")
 	public void login() {
 
+	}
+	
+	@Get("/login/{login}")
+	public void verificaLogin(String login){
+		result.use(json()).withoutRoot().from(usuariodao.verificaUsuario(login)).serialize();	
 	}
 
 	@Post("/login")

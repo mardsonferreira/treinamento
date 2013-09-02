@@ -19,7 +19,9 @@
 			<div class="control-group">
 				<div class="controls">
 					<input placeholder="login" id="login" class="required" type="text"
-						name="usuario.login" value="${usuario.login }" />
+						name="usuario.login" value="${usuario.login }" onblur="verificaUsuario();" />
+						<span class="sucesso" > Login Disponível </span>
+						<span class="erroLogin"> Login Indisponível </span>
 				</div>
 			</div>
 

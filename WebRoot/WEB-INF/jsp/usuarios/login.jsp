@@ -7,21 +7,21 @@
 
 
 		<div id="content">
-			<form action="<c:url value="/usuarios/login"/>" method="POST"
+			<form action="<c:url value="/usuarios/login"/>" method="POST" id="loginForm"
 				autocomplete="off">
 				<fieldset>
 					<legend>Efetue o login</legend>
 					<div class="control-group">
 						<div class="controls">
 							<input placeholder="Login" id="login" type="text"
-								name="usuario.login" />
+								name="usuario.login" class="required" />
 						</div>
 					</div>
 
 					<div class="control-group">
 						<div class="controls">
 							<input placeholder="Senha" id="senha" type="password"
-								name="usuario.senha" />
+								name="usuario.senha" class="required"/>
 						</div>
 					</div>
 					
