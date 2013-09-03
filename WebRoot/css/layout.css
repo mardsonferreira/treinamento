@@ -13,6 +13,11 @@ a {
 	text-decoration: none !important;
 }
 
+h2{
+	color: red;
+	font-size: 12pt;
+}
+
 ul {
 	list-style: none;
 	padding: 5px 10px;
@@ -144,3 +149,5 @@ h3 {
 	border: none;
 	background: mone;''
 }
+
+

@@ -2,11 +2,6 @@ package br.grupofortes.vraptor.controller;
 
 import static br.com.caelum.vraptor.view.Results.json;
 
-import javax.servlet.jsp.tagext.ValidationMessage;
-
-import org.codehaus.jettison.json.JSONArray;
-import org.json.JSONWriter;
-
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
@@ -14,6 +9,7 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.Message;
+import br.com.caelum.vraptor.validator.ValidationMessage;
 import br.grupofortes.vraptor.dao.UsuarioDao;
 import br.grupofortes.vraptor.model.Usuario;
 import br.grupofortes.vraptor.model.UsuarioWeb;
@@ -44,8 +40,8 @@ public class UsuariosController {
 	@Post("")
 	public void adiciona(Usuario usuario) {
 		if (usuariodao.existeUsuario(usuario)) {
-			validator.add((Message) new ValidationMessage("Login já existe",
-					"usuario.login"));
+			validator.add( new ValidationMessage("loginIncorreto",
+					"Login já existe"));
 		}
 		validator.onErrorUsePageOf(UsuariosController.class).formulario();
 		usuariodao.save(usuario);
@@ -65,14 +61,18 @@ public class UsuariosController {
 	@Post("/login")
 	public void login(Usuario usuario) {
 		Usuario carregado = usuariodao.carrega(usuario);
-		if (carregado == null) {
-			//validator.add((Message) new ValidationMessage(
-					//"Login e/ou senha inválidos", "usuario.login"));
-			result.redirectTo(UsuariosController.class).login();
+		if (carregado != null) {
+			 usuarioWeb.login(carregado);
+			 result.redirectTo(ProdutosController.class).produtos();
+		}else{
+			result.include("login", "Usuário não cadastrado!");
+			validator.add( new ValidationMessage("loginIncorreto",
+					"Login já existe"));
+		validator.onErrorUsePageOf(UsuariosController.class).login();
+		result.redirectTo(UsuariosController.class).login();
+		
 		}
-	//	validator.onErrorUsePageOf(UsuariosController.class).login();
-		usuarioWeb.login(carregado);
-		result.redirectTo(ProdutosController.class).produtos();
+		
 	}
 
 	@Path("/logout")
