@@ -77,8 +77,8 @@ public class ProdutosController {
 	public void save(Produto produto, UploadedFile imagem) {
 
 		validator.validate(produto);
-
 		validator.onErrorUsePageOf(this).formulario();
+
 		if (imagem != null) {
 			produto.setImage(imagem.getFileName());
 
@@ -86,7 +86,7 @@ public class ProdutosController {
 				produto.salvaImagem(imagem, produto.getImage());
 			}
 		} else {
-			
+
 			produtoDao.save(produto);
 		}
 		result.redirectTo(this).produtos();
@@ -101,22 +101,37 @@ public class ProdutosController {
 
 	@Put("")
 	@Restrito
-	public void update(Produto produto) {
+	public void update(Produto produto, UploadedFile imagem) {
 		validator.validate(produto);
 		validator.onErrorUsePageOf(this).edit(produto.getId());
 
-		if (produtoDao.update(produto))
-			result.include("mensagem", "Produto atualizado com sucesso!");
-		else
-			result.include("mensagem",
-					"Ocorreu um problema ao atualizar o produto.");
+		if (imagem != null) {
+			produto.removerImagem(produto.getImage());
+			produto.setImage(imagem.getFileName());
+
+			if (produtoDao.update(produto)){
+				produto.salvaImagem(imagem, produto.getImage());
+				result.include("mensagem", "Produto atualizado com sucesso!");
+			}else
+				result.include("mensagem",
+						"Ocorreu um problema ao atualizar o produto.");
+		}else{
+			if (produtoDao.update(produto))
+				result.include("mensagem", "Produto atualizado com sucesso!");
+			else
+				result.include("mensagem",
+						"Ocorreu um problema ao atualizar o produto.");
+		}
 		result.redirectTo(this).produtos();
 	}
 
 	@Delete("/remove/{id}")
 	@Restrito
 	public void remove(Long id) {
-		produtoDao.delete(produtoDao.carrega(id));
+		Produto produto = produtoDao.carrega(id);
+		if (produtoDao.delete(produto)) {
+			produto.removerImagem(produto.getImage());
+		}
 		result.use(Results.representation());
 	}
 

@@ -6,7 +6,7 @@
 <div id="content">
 	<table class="table table-striped">
 		<tr>
-			<th>Foto</th>
+			<th></th>
 			<th>Nome</th>
 			<th>Descrição</th>
 			<th>Preço</th>

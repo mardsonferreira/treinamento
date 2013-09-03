@@ -99,4 +99,14 @@ public class Produto {
 			throw new RuntimeException("Erro ao copiar imagem", e);
 		}
 	}
+	
+	
+	public void removerImagem(String nome){
+		String caminhoImagens = "C:/Users/mardsonferreira/Workspaces/MyEclipse 10/treinamento/WebRoot/WEB-INF/images/";
+		File imagem = new File(caminhoImagens, nome);
+		if(imagem.exists() && imagem.delete()){
+		   System.out.println("imagem excluída com sucesso");	
+		}
+	}
+	
 }

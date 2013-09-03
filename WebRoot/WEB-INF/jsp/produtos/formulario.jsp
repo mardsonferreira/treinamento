@@ -10,6 +10,7 @@
 
 			<c:if test="${produto.id != null}">
 				<input type="hidden" name="produto.id" value="${produto.id}">
+				<input type="hidden" name="produto.image" value="${produto.image}">
 				<input type='hidden' name='_method' value='PUT' />
 			</c:if>
 

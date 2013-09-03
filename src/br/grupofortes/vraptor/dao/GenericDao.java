@@ -32,12 +32,13 @@ public class GenericDao {
 		}
 	}
 
-	public void delete(Object object) {
+	public boolean delete(Object object) {
 		try {
 			getSession().delete(object);
 			getSession().flush();
+			return true;
 		} catch (ConstraintViolationException e) {
-			throw e;
+			return false;
 		}
 	}
 }
