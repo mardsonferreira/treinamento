@@ -1,12 +1,20 @@
 package br.grupofortes.vraptor.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 
+import org.apache.commons.io.IOUtils;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 @Entity
 public class Produto {
@@ -24,6 +32,8 @@ public class Produto {
 	@NotNull
 	@DecimalMin(value="0")
 	private Double preco;
+	
+	private String image;
 
 	public Long getId() {
 		return id;
@@ -57,6 +67,14 @@ public class Produto {
 		this.preco = preco;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public Produto(String nome, String descricao, Double preco) {
 		super();
 		this.nome = nome;
@@ -68,4 +86,17 @@ public class Produto {
 		super();
 	}
 
+	public void salvaImagem(UploadedFile imagem, String nome){
+		String caminhoImagens = "C:/Users/mardsonferreira/Workspaces/MyEclipse 10/treinamento/WebRoot/WEB-INF/images/";
+		File pastaImagens = new File(caminhoImagens);
+		pastaImagens.mkdir();
+		File destino = new File(pastaImagens, nome);
+		try {
+			IOUtils.copy(imagem.getFile(), new FileOutputStream(destino));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			throw new RuntimeException("Erro ao copiar imagem", e);
+		}
+	}
 }

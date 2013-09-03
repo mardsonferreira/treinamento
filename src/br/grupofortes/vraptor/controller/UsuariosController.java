@@ -66,10 +66,11 @@ public class UsuariosController {
 	public void login(Usuario usuario) {
 		Usuario carregado = usuariodao.carrega(usuario);
 		if (carregado == null) {
-			validator.add((Message) new ValidationMessage(
-					"Login e/ou senha inválidos", "usuario.login"));
+			//validator.add((Message) new ValidationMessage(
+					//"Login e/ou senha inválidos", "usuario.login"));
+			result.redirectTo(UsuariosController.class).login();
 		}
-		validator.onErrorUsePageOf(UsuariosController.class).login();
+	//	validator.onErrorUsePageOf(UsuariosController.class).login();
 		usuarioWeb.login(carregado);
 		result.redirectTo(ProdutosController.class).produtos();
 	}

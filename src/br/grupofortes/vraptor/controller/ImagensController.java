@@ -42,7 +42,7 @@ public class ImagensController {
 		}});
 		
 			validator.onErrorRedirectTo(ProdutosController.class).formulario();
-			imagens.salva(imagem, produto);
+		//	imagens.salva(imagem, produto);
 			result.redirectTo(ProdutosController.class).produtos();	
 	}
 	

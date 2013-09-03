@@ -14,14 +14,14 @@
 					<div class="control-group">
 						<div class="controls">
 							<input placeholder="Login" id="login" type="text"
-								name="usuario.login" class="required" />
+								name="usuario.login" class="required input" />
 						</div>
 					</div>
 
 					<div class="control-group">
 						<div class="controls">
 							<input placeholder="Senha" id="senha" type="password"
-								name="usuario.senha" class="required"/>
+								name="usuario.senha" class="required input"/>
 						</div>
 					</div>
 					

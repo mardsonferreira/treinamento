@@ -11,6 +11,7 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
+				<th>Foto</th>
 				<th>Nome</th>
 				<th>Descrição</th>
 				<th>Preço</th>
@@ -22,6 +23,8 @@
 		<tbody>
 			<c:forEach items="${carrinho.itens}" var="item" varStatus="s">
 				<tr>
+				<td><img src="<c:url value="/produtos/${item.produto.id}/image"/>"
+					width="80" height="80" /></td>
 					<td>${item.produto.nome }</td>
 					<td>${item.produto.descricao }</td>
 					<td><fmt:formatNumber type="currency"

@@ -10,12 +10,19 @@
 <script src="/produtos/js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="/produtos/js/jquery.mask.min.js" type="text/javascript"></script>
 
+<script src="/produtos/js/bootstrap-fileupload.js" type="text/javascript"></script>
+<script src="/produtos/js/bootstrap-fileupload.min.js" type="text/javascript"></script>
+<script src="/produtos/js/bootstrap.js" type="text/javascript"></script>
+<script src="/produtos/js/bootstrap.min.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="/produtos/css/bootstrap-fileupload.css">
+<link rel="stylesheet" type="text/css" href="/produtos/css/bootstrap-fileupload.min.css">
+<link rel="stylesheet" type="text/css" href="/produtos/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/produtos/css/bootstrap.css">
+
 
 <link rel="stylesheet" type="text/css" href="/produtos/css/layout.css">
-<link rel="stylesheet" type="text/css"
-	href="/produtos/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"
-	href="/produtos/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/produtos/css/font-awesome.min.css">
 
 
 

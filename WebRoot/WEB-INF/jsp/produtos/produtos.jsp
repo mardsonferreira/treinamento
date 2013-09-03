@@ -6,7 +6,7 @@
 <div id="content">
 	<table class="table table-striped">
 		<tr>
-			<th></th>
+			<th>Foto</th>
 			<th>Nome</th>
 			<th>Descrição</th>
 			<th>Preço</th>
@@ -17,7 +17,7 @@
 		</tr>
 		<c:forEach items="${produtos}" var="produto">
 			<tr id="produto-${produto.id}">
-				<td><img src="<c:url value="/produtos/${produto.id}/imagem"/>"
+				<td><img src="<c:url value="/produtos/${produto.id}/image"/>"
 					width="80" height="80" /></td>
 				<td>${produto.nome}</td>
 				<td>${produto.descricao}</td>
