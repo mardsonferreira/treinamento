@@ -52,10 +52,10 @@
 							style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
 						<div>
 							<span class="btn btn-file">
-							<span class="fileupload-new">Select image</span>
-							<span class="fileupload-exists">Change</span>
+							<span class="fileupload-new">Selecione imagem</span>
+							<span class="fileupload-exists">Alterar</span>
 							<input type="file" name="imagem" />
-							 </span> <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+							 </span> <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remover</a>
 						</div>
 					</div>
 
