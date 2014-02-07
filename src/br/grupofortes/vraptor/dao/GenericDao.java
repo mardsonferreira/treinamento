@@ -4,6 +4,9 @@ import org.hibernate.Session;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import br.com.caelum.vraptor.ioc.Component;
+
+@Component
 public class GenericDao {
 
 	@Autowired

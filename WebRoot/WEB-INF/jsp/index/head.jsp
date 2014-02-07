@@ -9,6 +9,7 @@
 <script src="/produtos/js/jquery-1.10.2.min.js" type="text/javascript"></script>
 <script src="/produtos/js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="/produtos/js/jquery.mask.min.js" type="text/javascript"></script>
+<script src="/produtos/js/jquery.numberMask.js" type="text/javascript"></script>
 
 <script src="/produtos/js/bootstrap-fileupload.js" type="text/javascript"></script>
 <script src="/produtos/js/bootstrap-fileupload.min.js" type="text/javascript"></script>

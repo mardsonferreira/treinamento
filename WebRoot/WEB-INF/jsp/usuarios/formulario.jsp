@@ -25,6 +25,12 @@
 				</div>
 			</div>
 
+			<div class="control-group">
+				<div class="controls">
+					<input placeholder="Nascimento" id="nasc" class="required input" type="text"
+						name="usuario.nasc" value="${usuario.nasc }" />
+				</div>
+			</div>
 
 			<div class="control-group">
 				<div class="controls">

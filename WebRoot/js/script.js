@@ -33,7 +33,9 @@ $(function() {
 	});
 
 		
-	$("#ppreco").mask("999999999999.99", {reverse: true});
+	//$("#ppreco").mask("999999999999.99", {reverse: true});
+	$("#ppreco").numberMask({beforePoint:5});
+	$("#nasc").mask("99/99/9999", {reverse: true});
 	
 	var messages = {}, itensObrigatoriosList = [];
 	function validateForm (form) {

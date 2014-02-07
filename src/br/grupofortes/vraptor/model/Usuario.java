@@ -1,9 +1,9 @@
 package br.grupofortes.vraptor.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
-import br.grupofortes.vraptor.dao.UsuarioDao;
 
 @Entity
 public class Usuario {
@@ -12,6 +12,7 @@ public class Usuario {
 	private String login;
 	private String senha;
 	private String nome;
+	private Date nasc;
 	
 	public String getLogin() {
 		return login;
@@ -31,6 +32,20 @@ public class Usuario {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	public Date getNasc() {
+		return nasc;
+	}
+	
+	
+	public void setNasc(Date nasc) {
+		this.nasc = nasc;
+	}
+	public void setNasc(long nasc) {
+		this.nasc = new Date(nasc);
+	}
+	
+	
+	
 	
 	
 	
